@@ -1,9 +1,14 @@
 package com.libgdx.combatgame.ecs.component;
 
+import com.badlogic.ashley.core.Component;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-import java.awt.*;
 
-public class TextureComponent extends Component {
-    TextureRegion region = new TextureRegion();
+public class TextureComponent implements Component {
+    public TextureRegion region;
+
+    public TextureComponent(Texture texture) {
+        this.region = new TextureRegion(texture);
+    }
 }
