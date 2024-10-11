@@ -16,16 +16,16 @@ public class RenderSystem extends IteratingSystem {
 
     public RenderSystem(SpriteBatch batch) {
         super(Family.all(TextureComponent.class, TransformComponent.class).get());
-        tm = ComponentMapper.getFor(TextureComponent.class);
         trm = ComponentMapper.getFor(TransformComponent.class);
+        tm = ComponentMapper.getFor(TextureComponent.class);
 
         this.batch = batch;
     }
 
     @Override
     protected void processEntity(Entity entity, float v) {
-        TextureComponent tc = tm.get(entity);
         TransformComponent trc = trm.get(entity);
+        TextureComponent tc = tm.get(entity);
 
         batch.begin();
         batch.draw(tc.region, trc.position.x, trc.position.y);

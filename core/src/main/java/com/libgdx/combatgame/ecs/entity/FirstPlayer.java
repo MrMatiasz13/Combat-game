@@ -4,14 +4,15 @@ import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.libgdx.combatgame.ecs.component.FirstPlayerComponent;
 import com.libgdx.combatgame.ecs.component.TextureComponent;
 import com.libgdx.combatgame.ecs.component.TransformComponent;
 
-public class Player {
+public class FirstPlayer {
     private final Engine engine;
     private final Texture texture;
 
-    public Player(Engine engine) {
+    public FirstPlayer(Engine engine) {
         this.engine = engine;
         this.texture = new Texture("libgdx.png");
     }
@@ -20,6 +21,7 @@ public class Player {
         Entity entity = engine.createEntity();
         TransformComponent transform = engine.createComponent(TransformComponent.class);
         TextureComponent texture = engine.createComponent(TextureComponent.class);
+        FirstPlayerComponent firstPlayer = engine.createComponent(FirstPlayerComponent.class);
 
         transform.position.x = 100;
         transform.position.y = 200;
@@ -27,6 +29,7 @@ public class Player {
 
         entity.add(transform);
         entity.add(texture);
+        entity.add(firstPlayer);
 
         engine.addEntity(entity);
     }
