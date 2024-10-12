@@ -15,6 +15,7 @@ public class MovementSystem extends IteratingSystem {
 
     public MovementSystem() {
         super(Family.one(FirstPlayerComponent.class).get());
+
         trm = ComponentMapper.getFor(TransformComponent.class);
     }
 
